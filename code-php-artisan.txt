@@ -18,6 +18,23 @@ php artisan make:migration buat_pengeluaran_table
 php artisan make:migration buat_sessions_table
 php artisan make:migration tambah_kolom_baru_to_users_table
 
+//buat Folder Helpers/helpers.php di app/Http
+//pergi ke composer.json dan tambahkan autoload
+"autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "app/Http/Helpers/helpers.php"
+        ]
+    },
+
+cara jalankan
+composer dump-autoload
+php artisan tinker
+
 
 
 */
