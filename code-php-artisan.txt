@@ -1,0 +1,25 @@
+php artisan migrate // migrate the database
+php artisan migrate:rollback // delete the last migration
+
+
+sebelum membuat migration check tablenya disini apa aja yang diperlukan
+php artisan make:migration create_add_column_to_users_table --create=users
+php artisan make:migration create_add_column_to_users_table
+php artisan make:migration buat_kategori_table
+php artisan make:migration buat_produk_table
+php artisan make:migration buat_member_table
+php artisan make:migration buat_supplier_table
+php artisan make:migration buat_pembelian_table
+php artisan make:migration buat_pembelian_detail_table
+php artisan make:migration buat_penjualan_table
+php artisan make:migration buat_penjualan_detail_table
+php artisan make:migration buat_setting_table
+php artisan make:migration buat_pengeluaran_table
+php artisan make:migration buat_sessions_table
+php artisan make:migration tambah_kolom_baru_to_users_table
+
+
+
+*/
+https://dbdiagram.io/d/6302d257f1a9b01b0fb3821f
+
