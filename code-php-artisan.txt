@@ -40,3 +40,7 @@ php artisan tinker
 */
 https://dbdiagram.io/d/6302d257f1a9b01b0fb3821f
 
+
+php artisan serve //untuk development
+php -S localhost:8000 -t public //untuk development
+
