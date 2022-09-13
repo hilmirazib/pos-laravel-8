@@ -18,6 +18,16 @@ php artisan make:migration buat_pengeluaran_table
 php artisan make:migration buat_sessions_table
 php artisan make:migration tambah_kolom_baru_to_users_table
 
+
+php artisan make:migration tambah_foreign_key_to_produk_table
+php artisan make:model Produk
+php artisan make:controller ProdukController -r
+php artisan make:migration tambah_kode_produk_to_produk_table
+untuk merubah struktur pada databse maka kita perlu menginstall
+https://github.com/doctrine/dbal -> composer require doctrine/dbal
+https://github.com/barryvdh/laravel-dompdf -> composer require barryvdh/laravel-dompdf
+https://github.com/milon/barcode -> composer require milon/barcode
+
 //buat Folder Helpers/helpers.php di app/Http
 //pergi ke composer.json dan tambahkan autoload
 "autoload": {
