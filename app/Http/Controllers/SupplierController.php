@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Kategori;
+use App\Models\Supplier;
 
-class KategoriController extends Controller
+class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,20 +14,20 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        return view('kategori.index');
+        return view('supplier.index');
     }
     public function data()
     {
-        $kategori = Kategori::orderBy('id_kategori', 'desc')->get();
+        $supplier = Supplier::orderBy('id_supplier', 'desc')->get();
 
         return datatables()
-            ->of($kategori)
+            ->of($supplier)
             ->addIndexColumn()
-            ->addColumn('aksi', function ($kategori) {
+            ->addColumn('aksi', function ($supplier) {
                 return '
                 <div class="btn-group">
-                    <button type="button" onclick="editForm(`' . route('kategori.update', $kategori->id_kategori) . '`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button type="button" onclick="deleteData(`' . route('kategori.destroy', $kategori->id_kategori) . '`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
+                    <button type="button" onclick="editForm(`' . route('supplier.update', $supplier->id_supplier) . '`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
+                    <button type="button" onclick="deleteData(`' . route('supplier.destroy', $supplier->id_supplier) . '`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
                 </div>
                 ';
             })
@@ -53,9 +53,7 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        $kategori = new Kategori();
-        $kategori->nama_kategori = $request->nama_kategori;
-        $kategori->save();
+        $supplier = Supplier::create($request->all());
 
         return response()->json('Data berhasil disimpan', 200);
     }
@@ -68,8 +66,9 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-        $kategori = Kategori::find($id);
-        return response()->json($kategori);
+        $supplier = Supplier::find($id);
+
+        return response()->json($supplier);
     }
 
     /**
@@ -92,11 +91,9 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kategori = Kategori::find($id);
-        $kategori->nama_kategori = $request->nama_kategori;
-        $kategori->update();
+        $supplier = Supplier::find($id)->update($request->all());
 
-        return response()->json('Data berhasil diupdate', 200);
+        return response()->json('Data berhasil disimpan', 200);
     }
 
     /**
@@ -107,9 +104,7 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        $kategori = Kategori::find($id);
-        $kategori->delete();
-
+        $supplier = Supplier::find($id)->delete();
         return response(null, 204);
     }
 }
